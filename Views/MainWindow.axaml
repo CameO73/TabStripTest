@@ -16,13 +16,14 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <TabStrip Margin="0" Padding="0"
+    <TabStrip Margin="0" Padding="0" Width="400"
               ItemsSource="{Binding History}" SelectedItem="{Binding SelectedHistoryItem, Mode=TwoWay}">
 
         <TabStrip.ItemTemplate>
             <DataTemplate DataType="models:ServiceHealthHistory">
-                <TabItem Background="{Binding Status}"
-                         Margin="0" Padding="0" Header="" MinHeight="0" />
+                <Panel Height="16">
+                    <Rectangle Fill="{Binding Status}" />
+                </Panel>
             </DataTemplate>
         </TabStrip.ItemTemplate>
 
@@ -32,25 +33,16 @@
             </ItemsPanelTemplate>
         </TabStrip.ItemsPanel>
 
-        <!-- <TabStrip.Resources> -->
-        <!--     <system:Double x:Key="TabItemMinHeight">0</system:Double> -->
-        <!-- </TabStrip.Resources> -->
-
         <TabStrip.Styles>
 
-            <!-- no spacing between tabs -->
             <Style Selector="TabStripItem">
                 <Setter Property="Padding" Value="2,0,0,0" />
-                <Setter Property="Margin" Value="0" />
                 <Setter Property="MinHeight" Value="0" />
-                <Setter Property="MaxHeight" Value="16" />
+                <Setter Property="MaxHeight" Value="28" />
             </Style>
 
-            <!-- Style for hover -->
             <Style Selector="TabStripItem:pointerover">
-                <Setter Property="Opacity" Value="0.75" />
-                <Setter Property="Background" Value="MediumVioletRed" />
-                <Setter Property="Foreground" Value="MediumVioletRed" />
+                <Setter Property="Opacity" Value="0.70" />
             </Style>
 
         </TabStrip.Styles>
